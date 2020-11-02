@@ -23,5 +23,3 @@ page
 16864
 >>> title = html[start_index:end_index]
 >>> title
-'Jobs in Lowell, NC 28098 - November 2020 | Indeed.com'
->>> 
