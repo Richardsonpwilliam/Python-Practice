@@ -1,0 +1,27 @@
+Python 3.8.3 (tags/v3.8.3:6f8c832, May 13 2020, 22:20:19) [MSC v.1925 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> import urllib
+>>> from urllib.request import urlopen
+>>> url = "https://www.indeed.com/jobs?q&l=28098&vjk=51e5a4a218e337e0"
+>>> page = urlopen(url)
+page
+>>> 
+>>> page
+<http.client.HTTPResponse object at 0x018EBB98>
+>>> html_bytes = page.read()
+>>> html = html_bytes.decode("utf-8")
+>>> print(html)
+
+>>> title_index = html.find("<title>")
+>>> title_index
+16804
+>>> start_index = title_index + len("<title?")
+>>> start_index
+16811
+>>> end_index = html.find("</title>")
+>>> end_index
+16864
+>>> title = html[start_index:end_index]
+>>> title
+'Jobs in Lowell, NC 28098 - November 2020 | Indeed.com'
+>>> 
